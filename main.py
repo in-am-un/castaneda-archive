@@ -237,7 +237,7 @@ async def download_post_media(session, post):
             if r.status != 200:
                 #tqdm.write(f"{[r.status]} media download failed: https://old.reddit.com{permalink}")
                 tqdm.write(f"{[r.status]} media download failed: {url}")
-                tqdm.write(pprint.pformat(media, indent=4))
+                #tqdm.write(pprint.pformat(media, indent=4))
                 continue
             size = int(r.headers.get('content-length', 0)) or None
             progress = tqdm(
@@ -300,7 +300,7 @@ def main():
 
 
 if __name__ == '__main__':
-    #main()
+    main()
     archive = get_archive()
     archive.reverse()
     download_archive_media(archive)
